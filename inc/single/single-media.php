@@ -15,7 +15,7 @@
       <div class="post-gallery">
         <?php foreach ( (array) $images as $attachment_id => $attachment_url ) { ?>
             <div class="item" data-hash="img-<?php echo esc_attr($attachment_id); ?>">
-            <?php echo wp_get_attachment_image( $attachment_id, 'full' ); ?>
+            <?php echo wp_get_attachment_image( $attachment_id, 'large' ); ?>
           </div>
         <?php } ?>
       </div>
@@ -40,7 +40,7 @@
     <?php  if ( has_post_thumbnail() ) { ?>
 			<div class="post-img">
         <a class="lightbox" href="<?php echo get_the_post_thumbnail_url(get_the_ID(),"full"); ?>">
-  				<?php echo get_the_post_thumbnail(get_the_ID(),"full"); ?>
+  				<?php echo get_the_post_thumbnail(get_the_ID(),"large"); ?>
         </a>
 			</div>
 		<?php } ?>

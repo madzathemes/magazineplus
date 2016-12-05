@@ -141,6 +141,18 @@ if(function_exists( 'is_woocommerce' ) ) {
 					'after_title' => '</span>',
 		) );
 
+		/* --------------------------------------------------------------------------------------- Author widgets */
+
+	register_sidebar( array(
+			'name' => esc_html__( 'Author Page Sidebar', 'magazineplus'),
+			'id' => 'sidebar-author-widget-area',
+			'description' => esc_html__( 'The Author page sidebar widget area' , 'magazineplus'),
+			'before_widget' => '<div class="widget">',
+			'after_widget' => '<div class="clear"></div></div>',
+					'before_title' => '<h2 class="heading"><span>',
+					'after_title' => '</span></h4>',
+		) );
+
 
 }
 

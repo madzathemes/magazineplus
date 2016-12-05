@@ -8,6 +8,7 @@
         <?php magazineplus_single_title(); ?>
         <?php magazineplus_single_social(); ?>
         <?php magazineplus_single_media(); ?>
+        <?php magazineplus_single_top(); ?>
         <div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -29,6 +30,7 @@
   			<?php magazineplus_single_cat(); ?>
         <?php magazineplus_single_title(); ?>
         <?php magazineplus_single_social(); ?>
+        <?php magazineplus_single_top(); ?>
         <div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -48,6 +50,7 @@
   			<?php magazineplus_single_cat(); ?>
         <?php magazineplus_single_title(); ?>
         <?php magazineplus_single_social(); ?>
+        <?php magazineplus_single_top(); ?>
         <div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -72,6 +75,7 @@
   			<?php magazineplus_single_cat(); ?>
         <?php magazineplus_single_title(); ?>
         <?php magazineplus_single_social(); ?>
+        <?php magazineplus_single_top(); ?>
         <div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -99,6 +103,7 @@
     <div class="row">
       <div class="single-content col-md-8 col-md-offset-2">
         <?php magazineplus_single_social(); ?>
+        <?php magazineplus_single_top(); ?>
         <div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -130,6 +135,7 @@
   <div class="container">
     <div class="row">
       <div class="single-content col-md-8 <?php echo sanitize_html_class($fl); ?> ">
+        <?php magazineplus_single_top(); ?>
   			<div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -169,6 +175,7 @@
     <div class="container">
       <div class="row">
         <div class="single-content col-md-8 <?php echo sanitize_html_class($fl); ?> ">
+          <?php magazineplus_single_top(); ?>
     			<div class="entry-content"><?php the_content(); ?></div>
           <?php magazineplus_single_bottom(); ?>
         </div>
@@ -200,6 +207,7 @@
   <div class="container">
     <div class="row">
       <div class="single-content col-md-8 <?php echo sanitize_html_class($fl); ?> ">
+        <?php magazineplus_single_top(); ?>
   			<div class="entry-content"><?php the_content(); ?></div>
         <?php magazineplus_single_bottom(); ?>
       </div>
@@ -227,6 +235,7 @@
 	<?php } ?>
   <div class="row">
     <div class="single-content col-md-8 <?php echo sanitize_html_class($fl); ?> ">
+      <?php magazineplus_single_top(); ?>
 			<div class="entry-content"><?php the_content(); ?></div>
       <?php magazineplus_single_bottom(); ?>
     </div>

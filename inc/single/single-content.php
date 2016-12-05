@@ -1,10 +1,19 @@
-<?php function magazineplus_single_bottom() {
+<?php function magazineplus_single_top() {
+$optionz = get_option("magazin_theme_options");
+  if  (!empty($optionz['article_ad_top'])) {  ?>
+    <div class="advertise text-center">
+      <?php echo html_entity_decode($optionz['article_ad_top']); ?>
+    </div>
+  <?php }
+}
+
+function magazineplus_single_bottom() {
 
 $allowed_html = array('ins' => array( 'class' => array(), 'style' => array(),'data-ad-client' => array(),'data-ad-slot' => array(),'data-ad-format' => array()), 'iframe' => array( 'id' => array(),'name' => array(),'src' => array(),'style' => array(),'scrolling' => array(),'frameborder' => array()), 'script' => array( 'async' => array(), 'type' => array(),'src' => array()), 'noscript' => array(), 'small' => array( 'class' => array()), 'img' => array( 'src' => array(), 'alt' => array(), 'class' => array(), 'width' => array(), 'height' => array() ), 'a' => array( 'href' => array(), 'title' => array() ), 'br' => array(), 'i' => array('class' => array()),  'em' => array(), 'strong' => array(), 'div' => array('class' => array()), 'span' => array('class' => array()));
 $option = get_option("magazineplus_theme_options");
 $optionz = get_option("magazin_theme_options");
 $url = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()));
-?>
+?><?php wp_link_pages(); ?>
   <div class="tags"><?php echo get_the_tag_list(); ?></div>
   <ul class="share down">
     <li class="share-facebook"><a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>" target="_blank"><span><?php echo esc_html__('Share Post', 'magazineplus'); ?></span></a></li>

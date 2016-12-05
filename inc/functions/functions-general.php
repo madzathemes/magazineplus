@@ -27,7 +27,6 @@ function magazineplus_paging_nav() {
 }
 endif;
 
-$navigation_speed = "4.6.2";
 
 
 if ( ! function_exists( 'magazineplus_entry_meta' ) ) {
@@ -97,8 +96,6 @@ if ( ! function_exists( 'magazineplus_content_nav' ) ) {
 }
 
 /** Theme Speed Improve **/
-global $wp_version; if (version_compare($wp_version, $navigation_speed, '>=')) { function_speed(); }
-
 /**
  * Creates a nicely formatted and more specific title element text
  * for output in head of document, based on current view.

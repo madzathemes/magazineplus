@@ -77,3 +77,43 @@ add_action( 'wp_head', 'magazineplus_javascript_detection', 0 );
 if ( ! isset( $content_width ) ) {
 	$content_width = 740;
 }
+
+function magazineplus_import_files() {
+    return array(
+        array(
+            'import_file_name'             => esc_html__( 'Demo 1', 'magazineplus' ),
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/import/demo1/demo.xml',
+            'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/import/demo1/export.dat',
+            'import_notice'                => esc_html__( 'Customize this theme from Appearance/Customize', 'tophot' ),
+        ),
+				array(
+            'import_file_name'             => esc_html__( 'Demo 2', 'magazineplus' ),
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/import/demo2/demo.xml',
+            'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/import/demo2/export.dat',
+            'import_notice'                => esc_html__( 'Customize this theme from Appearance/Customize', 'tophot' ),
+        )
+    );
+}
+add_filter( 'pt-ocdi/import_files', 'magazineplus_import_files' );
+
+function magazineplus_after_import_setup() {
+    // Assign menus to their locations.
+    $main_menu = get_term_by( 'name', 'Header', 'nav_menu' );
+		$mobile_menu = get_term_by( 'name', 'Mobile Menu', 'nav_menu' );
+		$footer_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
+
+    set_theme_mod( 'nav_menu_locations', array(
+            'primary' => $main_menu->term_id,
+						'mobile' => $mobile_menu->term_id,
+						'footer_menu' => $main_menu->term_id,
+        )
+    );
+		wp_delete_post(1);
+    // Assign front page and posts page (blog page).
+    $front_page_id = get_page_by_title( 'News' );
+
+    update_option( 'show_on_front', 'page' );
+    update_option( 'page_on_front', $front_page_id->ID );
+
+}
+add_action( 'pt-ocdi/after_import', 'magazineplus_after_import_setup' );
