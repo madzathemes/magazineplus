@@ -1,7 +1,26 @@
 <?php function magazineplus_footer_logo() { ?>
 
+  <?php
+  $option = get_option("tophot_theme_options");
+    // Fix for SSL
+    if(!empty($option['footer_logo'])) {
+      $footer_logo = esc_url($option['footer_logo']);
+      if(is_ssl() and 'http' == parse_url($footer_logo, PHP_URL_SCHEME) ){
+          $footer_logo = str_replace('http://', 'https://', $footer_logo);
+      }
+    }
+
+    $footer_logo2 = "";
+    if(!empty($option['footer_logox2'])) {
+      $footer_logo2 = esc_url($option['footer_logox2']);
+      if(is_ssl() and 'http' == parse_url($footer_logo2, PHP_URL_SCHEME) ){
+          $footer_logo2 = str_replace('http://', 'https://', $footer_logo2);
+      }
+    }
+
+    ?>
     <?php if(!empty($option['footer_logo'])) { ?>
-      <img src="<?php echo esc_url($option['footer_logo']); ?>" srcset="<?php echo esc_url($option['footer_logo']); ?> 1x, <?php echo esc_url($option['footer_logox2']); ?> 2x"  alt="<?php echo the_title(); ?>"  />
+      <img src="<?php echo esc_url($footer_logo); ?>" srcset="<?php echo esc_url($footer_logo); ?> 1x, <?php echo esc_url($footer_logo2); ?> 2x"  alt="<?php echo the_title(); ?>"  />
     <?php } else { ?>
       <img src="<?php echo get_template_directory_uri(); ?>/inc/img/logo-footer.png" width="300" height="90" alt="<?php echo the_title(); ?>" />
     <?php } ?>

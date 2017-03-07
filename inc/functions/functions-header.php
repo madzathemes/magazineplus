@@ -198,11 +198,27 @@ add_filter('magazineplus_top_content','magazineplus_top_content');
 
 function magazineplus_logo() {
 
-	$option = get_option("magazineplus_theme_options"); ?>
+	$option = get_option("magazineplus_theme_options");
 
-	<?php if(!empty($option['header_logo'])) { ?>
+	// Fix for SSL
+	if(!empty($option['header_logo'])) {
+		$header_logo = esc_url($option['header_logo']);
+		if(is_ssl() and 'http' == parse_url($header_logo, PHP_URL_SCHEME) ){
+		    $header_logo = str_replace('http://', 'https://', $header_logo);
+		}
+	}
+	if(!empty($option['header_logox2'])) {
+		$header_logo2 = esc_url($option['header_logox2']);
+		if(is_ssl() and 'http' == parse_url($header_logo2, PHP_URL_SCHEME) ){
+		    $header_logo2 = str_replace('http://', 'https://', $header_logo2);
+		}
+	}
+
+ 	if(!empty($option['header_logo'])) { ?>
 		<a class="logo"  href="<?php echo esc_url(home_url('/'));?>">
-			<img <?php if(!empty($option['logo_width'])) { ?>  width="<?php echo esc_attr($option['logo_width']); ?>" <?php } if(!empty($option['logo_height'])) { ?>  height="<?php echo esc_attr($option['logo_height']); ?>" <?php } ?> src="<?php echo esc_url($option['header_logo']); ?>" srcset="<?php echo esc_url($option['header_logo']); ?>, <?php if(!empty($option['header_logox2'])) { echo esc_url($option['header_logox2']); } ?> 2x"  alt="<?php echo the_title(); ?>"  />
+			<img <?php if(!empty($option['logo_width'])) { ?>  width="<?php echo esc_attr($option['logo_width']); ?>" <?php } if(!empty($option['logo_height'])) { ?>  height="<?php echo esc_attr($option['logo_height']); ?>" <?php } ?>
+			src="<?php echo esc_url($header_logo); ?>"
+			srcset="<?php echo esc_url($header_logo); ?>, <?php if(!empty($option['header_logox2'])) { echo esc_url($header_logo2); } ?> 2x"  alt="<?php echo the_title(); ?>"  />
 		</a>
 	<?php } else { ?>
 		<a class="logo"  href="<?php echo esc_url(home_url('/'));?>">
@@ -290,7 +306,8 @@ function magazineplus_header_fixed() {
 
 								<ul class="share">
 									<li class="share-facebook"><a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>" target="_blank"><span><?php echo esc_html__('Share on Facebook', 'magazineplus'); ?></span></a></li>
-									<li class="share-twitter"><a href="http://twitter.com/home/?status=<?php the_title(); ?>-<?php the_permalink(); ?>" target="_blank"><span><?php echo esc_html__('Share on Twitter', 'magazineplus'); ?></span></a></li>
+									<?php $input = get_the_title().' '.get_the_permalink(); $title = str_replace( ' ', '+', $input ); ?>
+									<li class="share-twitter"><a href="http://twitter.com/home/?status=<?php echo esc_attr($title); ?>" target="_blank"><span><?php echo esc_html__('Share on Twitter', 'magazineplus'); ?></span></a></li>
 									<li class="share-more">
 										<div class="share-more-wrap"><div class="share-more-icon">+</div></div>
 										<a href="https://plus.google.com/share?url=<?php the_permalink() ?>" target="_blank"><div class="google"></div></a>

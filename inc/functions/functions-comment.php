@@ -77,16 +77,16 @@ function magazineplus_comment( $comment, $args, $depth ) {
 						/* translators: 1: comment author, 2: date and time */
 						printf( esc_html__( '%1$s %2$s', 'magazineplus' ),
 							sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-							sprintf( '<a href="%1$s" class="mt_comment_date"> <time pubdate datetime="%2$s">%3$s</time></a>',
+							sprintf( '<a href="%1$s" class="mt_comment_date"> <time datetime="%2$s">%3$s</time></a>',
 								esc_url( get_comment_link( $comment->comment_ID ) ),
-								get_comment_time( 'n-j-Y' ),
+								get_comment_time( 'Y-m-d' ),
 								/* translators: 1: date, 2: time */
-								sprintf( esc_html__( '%1$s at %2$s', 'magazineplus' ), get_comment_date('n-j-Y' ), get_comment_time() )
+								sprintf( esc_html__( '%1$s at %2$s', 'magazineplus' ), get_comment_date('Y-m-d' ), get_comment_time() )
 							)
 						);
 					?>
 
-					
+
 				</div><!-- .comment-author .vcard -->
 
 				<?php if ( $comment->comment_approved == '0' ) : ?>
@@ -98,7 +98,7 @@ function magazineplus_comment( $comment, $args, $depth ) {
 
 			<div class="comment-content"><?php comment_text(); ?></div>
 			<div class="clear"></div>
-			<?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply', 'magazineplus' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?><?php edit_comment_link( esc_html__( ' Edit', 'magazineplus' ), '<span class="edit-link">', '</span>' ); ?> 
+			<?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply', 'magazineplus' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?><?php edit_comment_link( esc_html__( ' Edit', 'magazineplus' ), '<span class="edit-link">', '</span>' ); ?>
 		</article><!-- #comment-## -->
 
 	<?php

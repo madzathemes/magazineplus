@@ -135,6 +135,9 @@
 	float: left;
 	margin-right: 2%;
 }
+.ocdi .notice.notice-info {
+  display: none!important;
+}
 /*[class^="icon_set-"] > .postbox, [class*=" icon_set-"] > .postbox {
 	min-height: 180px;
 }*/
