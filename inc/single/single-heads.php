@@ -13,7 +13,7 @@
 /* Share Meta from Magazin framework */
 $share = get_post_meta(get_the_ID(), "magazin_share_count", true);
 $shares = "";
-if (class_exists('Kirki')) {
+if (function_exists('magazin_theme_setup')) {
   $shares = magazin_get_shares(get_the_ID());
 }
 if (!empty($share)){
