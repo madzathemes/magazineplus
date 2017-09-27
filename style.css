@@ -2085,71 +2085,68 @@ h2.heading::before {
 
 
 /* Social */
-
 .socials {
-    margin-bottom: 35px;
+  margin-bottom: 35px;
 }
-
 .socials a {
-    display: block;
-    padding: 12px 15px;
-    margin-bottom: 5px;
-    color: white;
-    position: relative;
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 0px;
+  color: white;
+  position: relative;
 }
-
-.socials a span, .socials a:before {
-    position: relative;
-    z-index: 2;
+.socials a span,
+.socials a:before {
+  position: relative;
+  z-index: 2;
 }
-
 .social-count {
-    position: absolute !important;
+  position: absolute !important;
 }
-
 .social-text {
-    float: right;
+  float: right;
+  font-size: 15px;
 }
+.social-facebook { background: #2d5f9a; }
+.social-facebook:before { content: "\77"; }
+.social-twitter { background: #2ecff8; }
+.social-twitter:before { content: "\6c"; }
+.social-youtube { background: #7a7b86; }
+.social-youtube:before { content: "\69"; }
 
-.social-facebook {
-    background: #2d5f9a;
+.social-github { background: #6e5494; }
+.social-github:before { content: "\e910"; }
+.social-googleplus { background: #d34836; }
+.social-googleplus:before { content: "\72"; }
+.social-instagram {
+  background: #bc2a8d;
+  background: -webkit-radial-gradient(32% 106%, circle cover, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), -webkit-linear-gradient(-45deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
+	background: -moz-radial-gradient(32% 106%, circle cover, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), -moz-linear-gradient(-45deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
+	background: radial-gradient(circle farthest-corner at 32% 106%, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
 }
-
-.social-facebook:before {
-    content: "\77";
-    font-family: "madza";
-    padding-right: 10px;
-    margin-right: 10px;
-    font-size: 18px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+.social-instagram:before { content: "\6d"; }
+.social-linkedin { background: #0077B5; }
+.social-linkedin:before { content: "\71"; }
+.social-pinterest { background: #cb2027; }
+.social-pinterest:before { content: "\70"; }
+.social-soundcloud { background: #f50; }
+.social-soundcloud:before { content: "\e912"; }
+.social-steam { background: #666666; }
+.social-steam:before { content: "\e90f"; }
+.social-tumblr { background: #32506d; }
+.social-tumblr:before { content: "\e90e"; }
+.social-twitch { background: #6441a5; }
+.social-twitch:before { content: "\e90c"; }
+.social-vimeo { background: #aad450; }
+.social-vimeo:before { content: "\6e"; }
+.socials a:before {
+  font-family: "madza";
+  padding-right: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  top: 2px;
 }
-
-.social-twitter {
-    background: #2ecff8;
-}
-
-.social-twitter:before {
-    content: "\6c";
-    font-family: "madza";
-    padding-right: 10px;
-    margin-right: 10px;
-    font-size: 18px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.social-subscribe {
-    background: #b5b5b5;
-}
-
-.social-subscribe:before {
-    content: "\69";
-    font-family: "madza";
-    padding-right: 10px;
-    margin-right: 10px;
-    font-size: 18px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
 .socials a:after {
     content: " ";
     width: 0%;
@@ -2160,21 +2157,18 @@ h2.heading::before {
     top: 0;
     z-index: 1;
 }
-
 .socials a:hover:after {
     width: 100%;
 }
-
 .social-count {
-    font-weight: 900;
-    font-size: 14px;
-    line-height: 1;
-    position: absolute;
-    padding-top: 4px;
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 1;
+  position: absolute;
+  padding-top: 4px;
 }
-
 .social-text strong {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 
@@ -4249,6 +4243,9 @@ top: -5px;
     }
     .panel-grid-cell {
         width: 100% !important;
+    }
+    .panel-grid.panel-no-style, .panel-grid.panel-has-style > .panel-row-style {
+      display: block
     }
     .post-gallery-nav .slick-arrow {
         display: none!important;
